@@ -1,7 +1,7 @@
 @use "@/scss/variables" as *;
 @use "@/scss/mixins" as *;
 
-$clr--secondary-bg: #f8f9fa;
+$clr--secondary-bg: #fafbfc;
 $clr--cell-border: #ccc;
 
 
@@ -63,7 +63,7 @@ $clr--cell-border: #ccc;
     transition: background-color $transition-speed--main;
 
     &:hover {
-        background-color: $clr--danger;
+        background-color: $clr--danger--hover;
     }
 
     &:focus-visible {
