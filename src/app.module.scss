@@ -1,0 +1,59 @@
+@use "./scss/variables" as *;
+@use "./scss/mixins" as *;
+
+.app {
+    min-height: 100vh;
+    background-color: $clr--app-bg;
+}
+
+.header {
+    background-color: $clr--secondary;
+    padding: 20px;
+
+    h1 {
+        margin: 0;
+        color: $clr--dark-grey;
+        font-size: 1.5rem;
+    }
+
+    @include subtle-bottom-shadow;
+}
+
+.main {
+    width: min(80rem, 100%);
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.25rem;
+    color: $clr--grey;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.25rem;
+    color: $clr--danger;
+}
+
+
+@media (max-width: $breakpoint--mobile) {
+    .header {
+        padding: 1rem;
+
+        h1 {
+            font-size: 1.25rem;
+        }
+    }
+
+    .main {
+        padding: 1rem;
+    }
+}

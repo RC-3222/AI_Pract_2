@@ -1,0 +1,143 @@
+@use "@/scss/variables" as *;
+
+.modal {
+    background-color: $clr--secondary;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn $transition-speed--main ease-out;
+
+    &Overlay {
+        border: none;
+        outline: none;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background-color: $clr--overlay-bg;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        z-index: 999;
+        animation: fadeIn $transition-speed--main ease-out;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $clr--grey;
+    padding: 0.25rem;
+    line-height: 1;
+
+    &:hover {
+        color: $clr--dark-grey;
+    }
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+
+        outline-offset: 4px;
+    }
+}
+
+.title {
+    margin-bottom: 1.5rem;
+    color: $clr--dark-grey;
+    font-size: 1.5rem;
+}
+
+.section {
+    margin-bottom: 1.5rem;
+
+    h3 {
+        color: $clr--grey;
+        margin-bottom: 0.75rem;
+        font-size: 1.125rem;
+    }
+
+    p {
+        margin: 0.5rem 0;
+        color: $clr--dark-grey;
+    }
+}
+
+.mapLink {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: $clr--primary;
+    color: $clr--secondary;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 8px;
+    transition: background-color $transition-speed--main;
+
+    &:hover {
+        text-decoration: none;
+        background-color: $clr--primary--hover;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $clr--primary;
+
+        &:hover {
+            outline-color: $clr--primary--hover;
+        }
+
+        outline-offset: 4px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: $breakpoint--mobile) {
+    .modal {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .section h3 {
+        font-size: 1rem;
+    }
+}
